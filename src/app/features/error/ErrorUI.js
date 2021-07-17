@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { reset } from "./errorSlice"
+import React from 'react'
+import { reset } from './errorSlice'
 import { useAppSelector, useAppDispatch } from '../../hooks'
 
 const ErrorUi = () => {
@@ -8,13 +8,19 @@ const ErrorUi = () => {
 
   return (
     <>
-      {error &&
-        (<div className="p-2">
-          <button onClick={() => dispatch(reset())} className="w-6 h-6 m-2 text-black bg-red-500 rounded-full">{"×"}</button><span>{error}</span>
-        </div>)
-      }
+      {error && (
+        <div className="p-2">
+          <button
+            onClick={() => dispatch(reset())}
+            className="w-6 h-6 m-2 text-black bg-red-500 rounded-full"
+          >
+            {'×'}
+          </button>
+          <span>{error}</span>
+        </div>
+      )}
     </>
-  );
-};
+  )
+}
 
-export default ErrorUi;
+export default ErrorUi

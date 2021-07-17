@@ -4,9 +4,8 @@ interface CounterState {
   value: string
 }
 
-// Define the initial state using that type
 const initialState: CounterState = {
-  value: "",
+  value: ''
 }
 
 export const errorSlice = createSlice({
@@ -14,12 +13,12 @@ export const errorSlice = createSlice({
   initialState,
   reducers: {
     set: (state, action: PayloadAction<string>) => {
-      state.value = "An unexpected error occured » " + action.payload
+      state.value = 'An unexpected error occured » ' + action.payload
     },
     reset: (state) => {
-      state.value = ""
-    },
-  },
+      state.value = ''
+    }
+  }
 })
 
 export const { set, reset } = errorSlice.actions

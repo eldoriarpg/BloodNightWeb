@@ -1,3 +1,3 @@
 export function tokenHeader(): HeadersInit {
-    return [["token", localStorage.getItem("token") || ""]]
+  return [['token', localStorage.getItem('token') || '']]
 }
