@@ -2,17 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import ErrorUi from './ErrorUI';
+import ErrorUi from './app/features/error/ErrorUI';
 import reportWebVitals from './reportWebVitals';
+import { store } from './app/store'
+import { Provider } from 'react-redux'
 
 ReactDOM.render(
-    <React.StrictMode>
-        <div className="min-h-screen font-mono bg-black text-red-400">
-            <ErrorUi/>
-            <App/>
-        </div>
-    </React.StrictMode>,
-    document.getElementById('root')
+  <React.StrictMode>
+    <Provider store={store}>
+      <div className="min-h-screen font-mono text-red-400 bg-black">
+        <ErrorUi />
+        <App />
+      </div>
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

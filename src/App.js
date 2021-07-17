@@ -1,21 +1,23 @@
-import {useEffect} from "react";
-import {getTypes, moblist} from "./api/base";
+import { useEffect } from "react"
+import { useAppDispatch } from './app/hooks'
+import { set, reset } from './app/features/error/errorSlice'
+import { getTypes, moblist } from "./api/base"
 
 function App() {
-    useEffect(() => {
-        (async () => {
-            console.log(await moblist())
-        })()
-    })
+  useEffect(() => {
+    (async () => {
+      console.log(await moblist())
+    })()
+  })
 
-    return (
-        <div className="min-h-screen flex justify-center items-center">
-            <div>
-                <p>🧛 Blood Night Web</p>
-                <p>{window.location.hash}</p>
-            </div>
-        </div>
-    );
+  return (
+    <div className="flex items-center justify-center min-h-screen">
+      <div>
+        <p>🧛 Blood Night Web</p>
+        <p>{window.location.hash}</p>
+      </div>
+    </div>
+  );
 }
 
 export default App;
