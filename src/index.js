@@ -10,7 +10,7 @@ import { Provider } from 'react-redux'
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <div className="min-h-screen font-mono text-red-400 bg-black">
+      <div className="min-h-screen font-mono text-red-400 bg-black selection:text-white selection:bg-blue-700">
         <ErrorUi />
         <App />
       </div>
