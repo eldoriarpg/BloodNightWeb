@@ -1,6 +1,8 @@
 // import { useEffect } from 'react'
 // import { getTypes, moblist } from './api/base'
 
+import Editor from './app/contents/Editor'
+
 function App() {
   if (!window.location.hash) {
     return (
@@ -15,10 +17,10 @@ function App() {
     )
   } else {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="min-h-screen p-10">
         <div>
           <h1 className="mb-2 text-2xl font-bold tracking-tight">🧛 Blood Night Web</h1>
-          <p>TODO: Editor</p>
+          <Editor />
         </div>
       </div>
     )

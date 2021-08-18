@@ -1,9 +1,10 @@
 import { tokenHeader } from './util'
 import { set } from '../app/features/error/errorSlice'
 import { store } from '../app/store'
+import { Types } from './declarations'
 
-async function query(uri: string, defaultValue?: object, options?: RequestInit): Promise<object> {
-  return new Promise(async (resolve) => {
+async function query<T>(uri: string, defaultValue?: T, options?: RequestInit): Promise<T> {
+  return new Promise<T>(async (resolve, reject) => {
     await fetch(process.env.REACT_APP_BASE_URL + uri, { headers: tokenHeader(), ...options }).then(
       (response) => {
         if (response.ok) {
@@ -16,14 +17,15 @@ async function query(uri: string, defaultValue?: object, options?: RequestInit):
       (reason) => {
         store.dispatch(set(reason.message))
         console.dir(reason)
-        resolve(defaultValue || {})
+        if (defaultValue) resolve(defaultValue)
+        else reject(reason)
       }
     )
   })
 }
 
-export async function getTypes() {
-  return await query('/types')
+export async function getTypes(): Promise<Types> {
+  return (await query<Types>('/types')) as Types
 }
 
 export async function moblist(): Promise<string[]> {
