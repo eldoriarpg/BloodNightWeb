@@ -25,17 +25,15 @@ async function query<T>(uri: string, defaultValue?: T, options?: RequestInit): P
 }
 
 export async function getTypes(): Promise<Types> {
-  return (await query<Types>('/types')) as Types
+  return query<Types>('/types')
 }
 
 export async function moblist(): Promise<string[]> {
-  return (await query('/moblist', [])) as string[]
+  return query<string[]>('/moblist', [])
 }
 
-export async function getMobSettings(identifier: string) {
-  return await fetch(process.env.REACT_APP_BASE_URL + '/mobsettings/' + identifier, {
-    headers: tokenHeader()
-  }).then((response) => response.json())
+export async function getMobSetting(identifier: string) {
+  return query('/mobsetting/' + identifier) 
 }
 
 export async function createMobSettings(identifier: string) {

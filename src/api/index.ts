@@ -1,3 +1,3 @@
-import { createMobSettings, deleteMobSettings, getMobSettings, getTypes, moblist } from './base'
+import { createMobSettings, deleteMobSettings, getMobSetting, getTypes, moblist } from './base'
 
-module.exports = [getTypes, moblist, getMobSettings, createMobSettings, deleteMobSettings]
+module.exports = [getTypes, moblist, getMobSetting, createMobSettings, deleteMobSettings]

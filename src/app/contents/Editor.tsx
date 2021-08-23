@@ -1,11 +1,17 @@
 import { useEffect } from 'react'
-import { getTypes } from '../../api/base'
+import { getMobSetting, getTypes, moblist } from '../../api/base'
 
 export default function Editor() {
   useEffect(() => {
     ;(async () => {
-      console.dir(await getTypes());
-      //console.log(types.)
+      let types = await getTypes()
+      console.log(types)
+      let mobs = await moblist()
+      console.log(mobs)
+      if (mobs.length > 0) {
+        let mobsettings = await getMobSetting(mobs[0]!)
+        console.log(mobsettings)
+      }
     })()
   }, [])
 

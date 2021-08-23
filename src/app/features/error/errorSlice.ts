@@ -13,7 +13,7 @@ export const errorSlice = createSlice({
   initialState,
   reducers: {
     set: (state, action: PayloadAction<string>) => {
-      state.value = 'An unexpected error occured » ' + action.payload
+      state.value = 'An unexpected error occured in ' + action.payload
     },
     reset: (state) => {
       state.value = ''
